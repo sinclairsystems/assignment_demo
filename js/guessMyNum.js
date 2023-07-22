@@ -74,6 +74,7 @@ function resetGame() {
   guessSubmit.disabled = false;
   guessField.value = "";
   guessField.focus();
+  prize.hidden = true;
 
   lastResult.style.backgroundColor = "white";
 

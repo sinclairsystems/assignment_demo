@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Monitoring Panel Tutorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 20px;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #4CAF50;
+        }
+
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            overflow-x: auto;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #d6336c;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .code-block {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+
+        .code-block::before {
+            content: 'Copy-Paste Code';
+            display: block;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Plant Monitoring Panel - HTML & CSS Tutorial</h1>
+    </header>
+
+    <section>
+        <h2>Step 1: Setting Up the Project Folder</h2>
+        <p>Create a folder called <strong>plant_monitoring_panel</strong>. Inside the folder, create two files:</p>
+        <ul>
+            <li>index.html</li>
+            <li>style.css</li>
+        </ul>
+        <p>
+            <strong>Explanation:</strong> The <code>index.html</code> file will contain the structure of the webpage. This is the framework that browsers use to display content. 
+            The <code>style.css</code> file will contain rules that define how the webpage looks (colors, fonts, positioning, etc.). You’ll link the two together in the next steps.
+        </p>
+        <p>
+            <strong>Copy-paste location:</strong> Create these two empty files inside the <code>plant_monitoring_panel</code> folder on your computer.
+        </p>
+    </section>
+
+    <section>
+        <h2>Step 2: Adding the HTML Foundation</h2>
+        <div class="code-block">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html lang="en"&gt;<br>
+    &lt;head&gt;<br>
+        &lt;meta charset="UTF-8"&gt;<br>
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+        &lt;title&gt;Plant Monitoring Panel&lt;/title&gt;<br>
+        &lt;link rel="stylesheet" href="style.css"&gt;<br>
+    &lt;/head&gt;<br>
+    &lt;body&gt;<br>
+        &lt;header&gt;<br>
+            &lt;h1&gt;Plant Monitoring Dashboard&lt;/h1&gt;<br>
+        &lt;/header&gt;<br>
+    &lt;/body&gt;<br>
+&lt;/html&gt;
+        </div>
+        <p>
+            <strong>Explanation:</strong> 
+            <ul>
+                <li><code>&lt;!DOCTYPE html&gt;</code> tells the browser you’re using the latest version of HTML5.</li>
+                <li><code>&lt;html lang="en"&gt;</code> defines the document as an HTML file and sets the language to English for accessibility and SEO.</li>
+                <li>The <code>&lt;head&gt;</code> section holds metadata like the character set (UTF-8) and the link to the external stylesheet (<code>style.css</code>).</li>
+                <li>The <code>&lt;body&gt;</code> contains all the visible content of the page.</li>
+                <li>The <code>&lt;header&gt;</code> tag is used to define the header area of the page, with an <code>&lt;h1&gt;</code> heading that displays "Plant Monitoring Dashboard."</li>
+            </ul>
+        </p>
+        <p>
+            <strong>Copy-paste location:</strong> Paste this code into the <code>index.html</code> file you created earlier.
+        </p>
+    </section>
+
+    <section>
+        <h2>Step 3: Adding a Section for Sensor Readouts</h2>
+        <div class="code-block">
+&lt;section class="plant-status"&gt;<br>
+    &lt;h2&gt;Plant Status&lt;/h2&gt;<br>
+    &lt;p&gt;Soil Moisture Level: &lt;span id="moisture-level"&gt;50%&lt;/span&gt;&lt;/p&gt;<br>
+    &lt;p&gt;Water Tank Level: &lt;span id="water-tank-level"&gt;75%&lt;/span&gt;&lt;/p&gt;<br>
+&lt;/section&gt;
+        </div>
+        <p>
+            <strong>Explanation:</strong>
+            <ul>
+                <li><code>&lt;section&gt;</code> groups content into logical sections, in this case for the plant’s status.</li>
+                <li><code>&lt;h2&gt;</code> creates a secondary heading for this section.</li>
+                <li><code>&lt;p&gt;</code> creates paragraphs for each sensor reading (e.g., soil moisture and water tank levels).</li>
+                <li><code>&lt;span&gt;</code> tags wrap the dynamic sensor values, allowing you to update them with JavaScript later.</li>
+            </ul>
+        </p>
+        <p>
+            <strong>Copy-paste location:</strong> Paste this code into the <code>index.html</code> file, right after the closing <code>&lt;/header&gt;</code> tag.
+        </p>
+    </section>
+
+    <section>
+        <h2>Step 4: Adding Control Buttons</h2>
+        <div class="code-block">
+&lt;div class="control-buttons"&gt;<br>
+    &lt;button&gt;Water Plant&lt;/button&gt;<br>
+    &lt;button&gt;Increase Humidity&lt;/button&gt;<br>
+&lt;/div&gt;
+        </div>
+        <p>
+            <strong>Explanation:</strong>
+            <ul>
+                <li><code>&lt;div&gt;</code> is used to group the buttons together.</li>
+                <li><code>&lt;button&gt;</code> creates interactive buttons that can trigger actions, such as watering the plant or increasing humidity.</li>
+            </ul>
+        </p>
+        <p>
+            <strong>Copy-paste location:</strong> Paste this code into the <code>index.html</code> file, just before the <code>&lt;/section&gt;</code> tag.
+        </p>
+    </section>
+
+    <section>
+        <h2>Step 5: Adding an Image</h2>
+        <div class="code-block">
+&lt;img src="sadtree.avif" alt="Sad Tree" id="plant-image"&gt;
+        </div>
+        <p>
+            <strong>Explanation:</strong>
+            <ul>
+                <li><code>&lt;img&gt;</code> is used to display an image. The <code>src</code> attribute specifies the image file's location.</li>
+                <li>The <code>alt</code> attribute provides alternative text for screen readers or in case the image fails to load.</li>
+                <li>The <code>id</code> allows you to style or manipulate the image later using CSS or JavaScript.</li>
+            </ul>
+        </p>
+        <p>
+            <strong>Copy-paste location:</strong> Paste this code into the <code>index.html</code> file, after the closing <code>&lt;/div&gt;</code> tag (right after the control buttons).
+        </p>
+    </section>
+
+    <section>
+        <h2>Step 6: Styling the Page with CSS</h2>
+        <div class="code-block">
+/* Basic reset */<br>
+* {<br>
+    margin: 0;<br>
+    padding: 0;<br>
+    box-sizing: border-box;<br>
+}<br><br>
+/* Body styling */<br>
+body {<br>
+    font-family: Arial, sans-serif;<br>
+    background-color: #f0f8ff;<br>
+    color: #333;<br>
+    padding: 20px;<br>
+}
+        </div>
+        <p>
+            <strong>Explanation:</strong>
+            <ul>
+                <li><code>* { margin: 0; padding: 0; }</code> resets default browser styles for padding and margins, making sure that all elements start from a consistent baseline.</li>
+                <li><code>box-sizing: border-box;</code> ensures that padding and borders are included in the element’s total width and height.</li>
+                <li><code>body</code> styles the entire page with a light background color, default text color, and applies a padding to the page content.</li>
+            </ul>
+        </p>
+        <p>
+            <strong>Copy-paste location:</strong> Paste this code into the <code>style.css</code> file you created earlier.
+        </p>
+    </section>
+
+    <section>
+        <h2>Step 7: Styling the Header</h2>
+        <div class="code-block">
+/* Header styling */<br>
+header {<br>
+    background-color: #4CAF50;<br>
+    color: white;<br>
+    padding: 10px 0;<br>
+    text-align: center;<br>
+    margin-bottom: 20px;<br>
+    border-radius: 8px;<br>
+}
+        </div>
+        <p>
+            <strong>Explanation:</strong>
+            <ul>
+                <li><code>background-color</code> sets the background color of the header to green (#4CAF50).</li>
+                <li><code>color</code> changes the text color to white.</li>
+                <li><code>padding</code> adds space around the text within the header.</li>
+                <li><code>text-align: center;</code> centers the text horizontally within the header.</li>
+                <li><code>margin-bottom</code> adds space below the header to separate it from other sections.</li>
+                <li><code>border-radius</code> rounds the corners of the header for a softer look.</li>
+            </ul>
+        </p>
+        <p>
+            <strong>Copy-paste location:</strong> Paste this code into the <code>style.css</code> file, after the body styling.
+        </p>
+    </section>
+
+    <section>
+        <h2>Step 8: Styling the Plant Status Section</h2>
+        <div class="code-block">
+/* Plant status section */<br>
+.plant-status {<br>
+    background-color: #fff;<br>
+    padding: 20px;<br>
+    border: 1px solid #ddd;<br>
+    border-radius: 8px;<br>
+    max-width: 400px;<br>
+    margin: 0 auto;<br>
+    text-align: center;<br>
+}<br><br>
+.plant-status h2 {<br>
+    margin-bottom: 10px;<br>
+    font-size: 1.5em;<br>
+}<br><br>
+.plant-status p {<br>
+    margin: 10px 0;<br>
+    font-size: 1.2em;<br>
+}<br><br>
+.plant-status span {<br>
+    font-weight: bold;<br>
+}
+        </div>
+        <p>
+            <strong>Explanation:</strong>
+            <ul>
+                <li><code>.plant-status</code> adds a white background, padding, and a border around the sensor readout section.</li>
+                <li><code>max-width: 400px;</code> ensures that the section doesn’t get too wide, even on large screens.</li>
+                <li><code>margin: 0 auto;</code> centers the section horizontally on the page.</li>
+                <li><code>text-align: center;</code> centers the text inside this section.</li>
+                <li><code>h2</code> adjusts the heading size and adds space below it.</li>
+                <li><code>p</code> adjusts the spacing and size of the sensor readout paragraphs.</li>
+                <li><code>span</code> makes the sensor values bold to stand out.</li>
+            </ul>
+        </p>
+        <p>
+            <strong>Copy-paste location:</strong> Paste this code into the <code>style.css</code> file, after the header styling.
+        </p>
+    </section>
+
+    <section>
+        <h2>Step 9: Styling the Buttons</h2>
+        <div class="code-block">
+/* Buttons styling */<br>
+.control-buttons {<br>
+    margin-top: 20px;<br>
+}<br><br>
+button {<br>
+    background-color: #4CAF50;<br>
+    color: white;<br>
+    border: none;<br>
+    padding: 10px 20px;<br>
+    margin: 5px;<br>
+    cursor: pointer;<br>
+    border-radius: 5px;<br>
+    font-size: 1em;<br>
+}<br><br>
+button:hover {<br>
+    background-color: #45a049;<br>
+}
+        </div>
+        <p>
+            <strong>Explanation:</strong>
+            <ul>
+                <li><code>background-color</code> gives the buttons the same green color as the header.</li>
+                <li><code>color</code> changes the text on the buttons to white.</li>
+                <li><code>padding</code> adds space inside the buttons to make them easier to click.</li>
+                <li><code>margin</code> adds space between each button.</li>
+                <li><code>cursor: pointer;</code> makes the mouse pointer change to a hand icon when hovering over the buttons, indicating that they are clickable.</li>
+                <li><code>border-radius</code> gives the buttons rounded corners.</li>
+                <li><code>hover</code> changes the background color when the user hovers over the button, providing visual feedback.</li>
+            </ul>
+        </p>
+        <p>
+            <strong>Copy-paste location:</strong> Paste this code into the <code>style.css</code> file, after the plant status section styling.
+        </p>
+    </section>
+
+    <section>
+        <h2>Step 10: Styling the Image</h2>
+        <div class="code-block">
+/* Image styling */<br>
+#plant-image {<br>
+    margin-top: 20px;<br>
+    width: 200px;<br>
+    border-radius: 10px;<br>
+}
+        </div>
+        <p>
+            <strong>Explanation:</strong>
+            <ul>
+                <li><code>margin-top</code> adds space above the image to separate it from the buttons.</li>
+                <li><code>width</code> limits the image to a fixed width of 200px.</li>
+                <li><code>border-radius</code> adds rounded corners to the image for a polished look.</li>
+            </ul>
+        </p>
+        <p>
+            <strong>Copy-paste location:</strong> Paste this code into the <code>style.css</code> file, after the button styling.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Name</p>
+    </footer>
+
+</body>
+</html>
